@@ -5,7 +5,9 @@
       <map>
         <entry key="app/src/main/res/drawable/burger_background.xml" value="0.106" />
         <entry key="app/src/main/res/drawable/ic_noun_arrow.xml" value="0.214" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
+        <entry key="app/src/main/res/layout/activity_basket.xml" value="0.23143115942028986" />
+        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.25896759033203126" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23872934977213547" />
         <entry key="app/src/main/res/layout/meal_card.xml" value="0.2571284860804461" />
         <entry key="app/src/main/res/layout/sample_mainfood.xml" value="0.23143115942028986" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/burger.xml" value="0.117" />

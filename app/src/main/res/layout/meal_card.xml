@@ -39,13 +39,13 @@
                     android:text="meal price"
                     android:textSize="20sp" />
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/basketBtnMain"
                     android:textSize="12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:text="add to basket" />
+                    android:text="Səbətə əlavə et" />
             </LinearLayout>
 
             <ImageView

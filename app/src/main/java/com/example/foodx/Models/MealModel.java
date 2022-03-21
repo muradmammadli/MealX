@@ -1,4 +1,4 @@
-package com.example.foodx;
+package com.example.foodx.Models;
 
 public class MealModel {
     private int meal_id;

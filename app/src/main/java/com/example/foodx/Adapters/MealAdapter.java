@@ -1,12 +1,13 @@
-package com.example.foodx;
+package com.example.foodx.Adapters;
 
 import android.content.Context;
-import android.hardware.lights.LightState;
-import android.text.Layout;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +15,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.foodx.DetailActivity;
+import com.example.foodx.Models.MealModel;
+import com.example.foodx.R;
 
 import java.util.List;
 
@@ -45,6 +50,19 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
 
         holder.cardView.setOnClickListener(view -> {
             Toast.makeText(context, "Clicked card", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra("MealName",model.getMeal_name());
+            intent.putExtra("MealPrice",model.getMeal_price());
+            intent.putExtra("MealImage",model.getMeal_image());
+            intent.putExtra("MealDesc",model.getMeal_desc());
+            context.startActivity(intent);
+        });
+
+        holder.basketBtn.setOnClickListener(view -> {
+            SharedPreferences mPrefs = context.getSharedPreferences("Meal",0);
+            SharedPreferences.Editor editor = mPrefs.edit();
+            
+            editor.apply();
         });
     }
 
@@ -59,6 +77,7 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
         ImageView mealImg;
         ImageView mealDescImg;
         CardView cardView;
+        Button basketBtn;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mealName = itemView.findViewById(R.id.mealName);
@@ -66,6 +85,7 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
             mealImg = itemView.findViewById(R.id.mealImg);
             mealDescImg = itemView.findViewById(R.id.mealDescImg);
             cardView = itemView.findViewById(R.id.cardView);
+            basketBtn = itemView.findViewById(R.id.basketBtnMain);
         }
     }
 

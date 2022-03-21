@@ -1,15 +1,16 @@
-package com.example.foodx;
+package com.example.foodx.SqliteDb;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.foodx.Models.MealModel;
 
 import java.util.ArrayList;
 
 public class MealDao {
 
-    public void addMeal(DatabaseHelper databaseHelper,String meal_name,String meal_price,String meal_desc,int meal_image){
+    public void addMeal(DatabaseHelper databaseHelper, String meal_name, String meal_price, String meal_desc, int meal_image){
         SQLiteDatabase dbx = databaseHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("meal_name",meal_name);

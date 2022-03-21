@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodX">
         <activity
+            android:name=".BasketActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

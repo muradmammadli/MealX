@@ -1,0 +1,16 @@
+package com.example.foodx;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+
+public class BasketActivity extends AppCompatActivity {
+    private RecyclerView recyclerView;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_basket);
+
+    }
+}
