@@ -7,21 +7,57 @@
     android:orientation="vertical"
     tools:context=".BasketActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarBasket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarBasket">
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <Button
-        android:id="@+id/button"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sifariş et"
-        android:align="@+id/recyclerView"
         android:layout_below="@+id/recyclerView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/orderBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="32dp"
+            android:text="Sifariş et" />
+
+        <Button
+            android:id="@+id/deletBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/design_default_color_error"
+            android:text="Ləğv et" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/addImg"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        app:srcCompat="@drawable/add_icon" />
+
 </RelativeLayout>

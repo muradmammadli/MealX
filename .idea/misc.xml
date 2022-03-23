@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/back_icon_toolbar.xml" value="0.214" />
         <entry key="app/src/main/res/drawable/burger_background.xml" value="0.106" />
+        <entry key="app/src/main/res/drawable/delete_item_icon.xml" value="0.214" />
         <entry key="app/src/main/res/drawable/ic_noun_arrow.xml" value="0.214" />
-        <entry key="app/src/main/res/layout/activity_basket.xml" value="0.23143115942028986" />
+        <entry key="app/src/main/res/drawable/order_icon.xml" value="0.214" />
+        <entry key="app/src/main/res/layout/activity_basket.xml" value="0.22959442138671876" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.25896759033203126" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23872934977213547" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.180230712890625" />
+        <entry key="app/src/main/res/layout/basket_raw_item.xml" value="0.21415742572985186" />
         <entry key="app/src/main/res/layout/meal_card.xml" value="0.2571284860804461" />
         <entry key="app/src/main/res/layout/sample_mainfood.xml" value="0.23143115942028986" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/burger.xml" value="0.117" />
@@ -19,5 +23,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

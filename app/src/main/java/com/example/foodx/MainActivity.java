@@ -1,9 +1,12 @@
 package com.example.foodx;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -12,6 +15,7 @@ import com.example.foodx.Adapters.MealAdapter;
 import com.example.foodx.Models.MealModel;
 import com.example.foodx.SqliteDb.DatabaseHelper;
 import com.example.foodx.SqliteDb.MealDao;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -19,16 +23,22 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseHelper databaseHelper;
     private RecyclerView recyclerView;
     private MealAdapter adapter;
+    private Toolbar toolbar;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
+        toolbar.setTitle("Yeməklər");
+        setSupportActionBar(toolbar);
         databaseHelper = new DatabaseHelper(this);
         initRecyclerView();
-
-
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this,BasketActivity.class);
+            startActivity(intent);
+        });
     }
 
 
@@ -37,10 +47,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<MealModel> modelArrayList = new MealDao().mealModelArrayList(databaseHelper);
         adapter = new MealAdapter(this,modelArrayList);
+
         recyclerView.setAdapter(adapter);
     }
 
     private void initViews(){
         recyclerView = findViewById(R.id.recyclerView);
+        toolbar = findViewById(R.id.toolbar);
+        fab = findViewById(R.id.floatingActionButton2);
     }
 }

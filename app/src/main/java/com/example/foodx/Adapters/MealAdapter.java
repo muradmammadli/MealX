@@ -16,6 +16,9 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodx.BasketActivity;
+import com.example.foodx.Database.AppDatabase;
+import com.example.foodx.Database.Basket;
 import com.example.foodx.DetailActivity;
 import com.example.foodx.Models.MealModel;
 import com.example.foodx.R;
@@ -49,7 +52,6 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
         Log.d("Drawable adapter", String.valueOf(model.getMeal_price()));
 
         holder.cardView.setOnClickListener(view -> {
-            Toast.makeText(context, "Clicked card", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(context, DetailActivity.class);
             intent.putExtra("MealName",model.getMeal_name());
             intent.putExtra("MealPrice",model.getMeal_price());
@@ -59,10 +61,15 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
         });
 
         holder.basketBtn.setOnClickListener(view -> {
-            SharedPreferences mPrefs = context.getSharedPreferences("Meal",0);
-            SharedPreferences.Editor editor = mPrefs.edit();
-            
-            editor.apply();
+            Intent intent = new Intent(context, BasketActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+            AppDatabase db = AppDatabase.getDbInstance(context);
+            Basket basket = new Basket();
+            basket.mealName = model.getMeal_name();
+            basket.mealPrice = model.getMeal_price();
+            basket.mealImage = model.getMeal_image();
+            db.userDao().insertBasket(basket);
         });
     }
 
