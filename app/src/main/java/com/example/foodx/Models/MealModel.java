@@ -4,10 +4,10 @@ public class MealModel {
     private int meal_id;
     private String meal_name;
     private String meal_desc;
-    private String meal_price;
+    private int meal_price;
     private int meal_image;
 
-    public MealModel(int meal_id, String meal_name, String meal_desc, String meal_price, int meal_image) {
+    public MealModel(int meal_id, String meal_name, String meal_desc, int meal_price, int meal_image) {
         this.meal_id = meal_id;
         this.meal_name = meal_name;
         this.meal_desc = meal_desc;
@@ -39,11 +39,11 @@ public class MealModel {
         this.meal_desc = meal_desc;
     }
 
-    public String getMeal_price() {
+    public int getMeal_price() {
         return meal_price;
     }
 
-    public void setMeal_price(String meal_price) {
+    public void setMeal_price(int meal_price) {
         this.meal_price = meal_price;
     }
 

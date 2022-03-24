@@ -39,6 +39,7 @@ public class BasketActivity extends AppCompatActivity {
         addImg.setOnClickListener(view -> {
             finish();
         });
+
     }
 
     @Override

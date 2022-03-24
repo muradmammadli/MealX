@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("Yeməklər");
         setSupportActionBar(toolbar);
         databaseHelper = new DatabaseHelper(this);
+//        new MealDao().addMeal(databaseHelper,"Yarpaq dolması",5,"Qoyun əti, düyü, baş soğan, keşniş, şüyüd, nanə, tənək yarpağı",R.drawable.yarpaqdolmasi);
+//        new MealDao().addMeal(databaseHelper,"3 baci dolması",6,"badımcan, yaşıl bibəri, pomidor, duz,istiot",R.drawable.ucbacidolmasi);
+//        new MealDao().addMeal(databaseHelper,"Plov",4,"düyü, süd, duz, zəfəran, kişmiş, xurma, kərə yağı, bal, qaymaq",R.drawable.plov);
+//        new MealDao().addMeal(databaseHelper,"Ləvəngi",12,"toyuq, soğan, qoz ləpəsi, alça turşusu, duz, istiot",R.drawable.levengi);
         initRecyclerView();
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this,BasketActivity.class);

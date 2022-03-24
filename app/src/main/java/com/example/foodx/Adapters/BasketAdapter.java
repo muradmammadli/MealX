@@ -1,8 +1,11 @@
 package com.example.foodx.Adapters;
 
+import static com.example.foodx.DetailActivity.MEAL_COUNT_PREF;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +22,6 @@ import com.example.foodx.R;
 import java.util.List;
 
 public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.BasketHolder> {
-
     Context context;
     List<Basket> basketList;
 
@@ -38,9 +40,10 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.BasketHold
 
     @Override
     public void onBindViewHolder(@NonNull BasketHolder holder, int position) {
+//        SharedPreferences preferences = context.getSharedPreferences(MEAL_COUNT_PREF,Context.MODE_PRIVATE);
         Basket basket = basketList.get(position);
         holder.basketMealName.setText(basket.mealName);
-        holder.basketMealPrice.setText(basket.mealPrice);
+        holder.basketMealPrice.setText(basket.mealPrice + "AZN");
         holder.basketImg.setImageResource(basket.mealImage);
         holder.deleteBtn.setOnClickListener(view -> {
             AppDatabase db = AppDatabase.getDbInstance(context);

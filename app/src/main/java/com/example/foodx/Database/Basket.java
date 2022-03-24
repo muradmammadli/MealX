@@ -14,7 +14,7 @@ public class Basket {
     public String mealName;
 
     @ColumnInfo(name = "meal_price")
-    public String mealPrice;
+    public int mealPrice;
 
     @ColumnInfo(name = "meal_image")
     public int mealImage;

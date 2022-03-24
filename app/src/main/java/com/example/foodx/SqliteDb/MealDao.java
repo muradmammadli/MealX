@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class MealDao {
 
-    public void addMeal(DatabaseHelper databaseHelper, String meal_name, String meal_price, String meal_desc, int meal_image){
+    public void addMeal(DatabaseHelper databaseHelper, String meal_name, int meal_price, String meal_desc, int meal_image){
         SQLiteDatabase dbx = databaseHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("meal_name",meal_name);
@@ -32,7 +32,7 @@ public class MealDao {
             MealModel mealModel = new MealModel(c.getInt(c.getColumnIndexOrThrow("meal_id")),
                     c.getString(c.getColumnIndexOrThrow("meal_name")),
                     c.getString(c.getColumnIndexOrThrow("meal_desc")),
-                    c.getString(c.getColumnIndexOrThrow("meal_price")),
+                    c.getInt(c.getColumnIndexOrThrow("meal_price")),
                     c.getInt(c.getColumnIndexOrThrow("meal_image")));
             mealsArrayList.add(mealModel);
         }

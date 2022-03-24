@@ -46,7 +46,7 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MealModel model = modelList.get(position);
         holder.mealName.setText(model.getMeal_name());
-        holder.mealPrice.setText(model.getMeal_price());
+        holder.mealPrice.setText(model.getMeal_price() + "AZN");
         holder.mealImg.setImageResource(model.getMeal_image());
         Log.d("Drawable adapter", String.valueOf(model.getMeal_image()));
         Log.d("Drawable adapter", String.valueOf(model.getMeal_price()));
