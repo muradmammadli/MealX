@@ -40,10 +40,9 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.BasketHold
 
     @Override
     public void onBindViewHolder(@NonNull BasketHolder holder, int position) {
-//        SharedPreferences preferences = context.getSharedPreferences(MEAL_COUNT_PREF,Context.MODE_PRIVATE);
         Basket basket = basketList.get(position);
         holder.basketMealName.setText(basket.mealName);
-        holder.basketMealPrice.setText(basket.mealPrice + "AZN");
+        holder.basketMealPrice.setText(basket.getMealPrice() + "AZN");
         holder.basketImg.setImageResource(basket.mealImage);
         holder.deleteBtn.setOnClickListener(view -> {
             AppDatabase db = AppDatabase.getDbInstance(context);

@@ -16,6 +16,13 @@ public class Basket {
     @ColumnInfo(name = "meal_price")
     public int mealPrice;
 
+    public int getMealPrice() {
+        return mealPrice*mealCount;
+    }
+
     @ColumnInfo(name = "meal_image")
     public int mealImage;
+
+    @ColumnInfo(name = "meal_count")
+    public int mealCount;
 }

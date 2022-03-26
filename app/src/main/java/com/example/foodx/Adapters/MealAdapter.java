@@ -69,6 +69,7 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
             basket.mealName = model.getMeal_name();
             basket.mealPrice = model.getMeal_price();
             basket.mealImage = model.getMeal_image();
+            basket.mealCount = 1;
             db.userDao().insertBasket(basket);
         });
     }
