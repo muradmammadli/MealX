@@ -18,10 +18,11 @@
         <entry key="app/src/main/res/drawable/toast_background.xml" value="0.194" />
         <entry key="app/src/main/res/layout/activity_basket.xml" value="0.1442947387695313" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.22385406494140625" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.13615417480468753" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.180230712890625" />
         <entry key="app/src/main/res/layout/basket_raw_item.xml" value="0.21415742572985186" />
         <entry key="app/src/main/res/layout/custom_toast.xml" value="0.17724304199218752" />
-        <entry key="app/src/main/res/layout/meal_card.xml" value="0.2571284860804461" />
+        <entry key="app/src/main/res/layout/meal_card.xml" value="0.23262287084607108" />
         <entry key="app/src/main/res/layout/sample_mainfood.xml" value="0.23143115942028986" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/burger.xml" value="0.117" />
       </map>

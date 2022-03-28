@@ -3,6 +3,7 @@ package com.example.foodx.Adapters;
 import static com.example.foodx.DetailActivity.MEAL_COUNT_PREF;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodx.Database.AppDatabase;
@@ -51,6 +53,9 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.BasketHold
             notifyItemRangeRemoved(position, basketList.size());
             notifyDataSetChanged();
         });
+        Intent intent = new Intent("list-size");
+        intent.putExtra("BASKET_LIST_SIZE",basketList.size());
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
     }
 
     @Override
