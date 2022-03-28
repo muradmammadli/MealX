@@ -18,22 +18,31 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbarBasket">
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarBasket"
+        android:layout_above="@id/basketBottom">
 
     </androidx.recyclerview.widget.RecyclerView>
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/basketBottom"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:background="@drawable/round_corner"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:gravity="center"
-            android:text="Ümumi məbləğ" />
+            android:text="Ümumi məbləğ"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/sumPrice"
             android:layout_width="wrap_content"
@@ -41,19 +50,22 @@
             android:gravity="center"
             android:text="20.00 azn"
             android:textColor="@color/red"
-            android:textStyle="bold"/>
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/btnLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <Button
                 android:id="@+id/orderBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_marginTop="32dp"
+                android:backgroundTint="@color/green"
                 android:text="Sifariş et" />
 
             <Button
@@ -68,17 +80,13 @@
     </LinearLayout>
 
 
-
     <ImageView
         android:id="@+id/addImg"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
+        android:layout_margin="5dp"
         app:srcCompat="@drawable/add_icon" />
 
 </RelativeLayout>

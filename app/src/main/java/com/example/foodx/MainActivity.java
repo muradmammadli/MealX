@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.foodx.Adapters.MealAdapter;
 import com.example.foodx.Models.MealModel;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MealAdapter adapter;
     private Toolbar toolbar;
-    private FloatingActionButton fab;
+    private ImageView fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("Yeməklər");
         setSupportActionBar(toolbar);
         databaseHelper = new DatabaseHelper(this);
-//        new MealDao().addMeal(databaseHelper,"Yarpaq dolması",5,"Qoyun əti, düyü, baş soğan, keşniş, şüyüd, nanə, tənək yarpağı",R.drawable.yarpaqdolmasi);
-//        new MealDao().addMeal(databaseHelper,"3 baci dolması",6,"badımcan, yaşıl bibəri, pomidor, duz,istiot",R.drawable.ucbacidolmasi);
-//        new MealDao().addMeal(databaseHelper,"Plov",4,"düyü, süd, duz, zəfəran, kişmiş, xurma, kərə yağı, bal, qaymaq",R.drawable.plov);
-//        new MealDao().addMeal(databaseHelper,"Ləvəngi",12,"toyuq, soğan, qoz ləpəsi, alça turşusu, duz, istiot",R.drawable.levengi);
+        new MealDao().addMeal(databaseHelper,"Yarpaq dolması",5,"Qoyun əti, düyü, baş soğan, keşniş, şüyüd, nanə, tənək yarpağı",R.drawable.yarpaqdolmasi);
+        new MealDao().addMeal(databaseHelper,"3 baci dolması",6,"badımcan, yaşıl bibəri, pomidor, duz,istiot",R.drawable.ucbacidolmasi);
+        new MealDao().addMeal(databaseHelper,"Plov",4,"düyü, süd, duz, zəfəran, kişmiş, xurma, kərə yağı, bal, qaymaq",R.drawable.plov);
+        new MealDao().addMeal(databaseHelper,"Ləvəngi",12,"toyuq, soğan, qoz ləpəsi, alça turşusu, duz, istiot",R.drawable.levengi);
         initRecyclerView();
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this,BasketActivity.class);
@@ -58,6 +59,6 @@ public class MainActivity extends AppCompatActivity {
     private void initViews(){
         recyclerView = findViewById(R.id.recyclerView);
         toolbar = findViewById(R.id.toolbar);
-        fab = findViewById(R.id.floatingActionButton2);
+        fab = findViewById(R.id.fabImg);
     }
 }

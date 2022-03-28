@@ -3,6 +3,7 @@ package com.example.foodx.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +39,6 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(context).inflate(R.layout.meal_card,parent,false);
-
         return new ViewHolder(itemView);
     }
 
@@ -57,13 +57,11 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
             intent.putExtra("MealPrice",model.getMeal_price());
             intent.putExtra("MealImage",model.getMeal_image());
             intent.putExtra("MealDesc",model.getMeal_desc());
+
             context.startActivity(intent);
         });
 
         holder.basketBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(context, BasketActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);
             AppDatabase db = AppDatabase.getDbInstance(context);
             Basket basket = new Basket();
             basket.mealName = model.getMeal_name();
@@ -71,6 +69,10 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
             basket.mealImage = model.getMeal_image();
             basket.mealCount = 1;
             db.userDao().insertBasket(basket);
+            Toast.makeText(context, "Sifariş əlavə edildi", Toast.LENGTH_SHORT).show();
+            final MediaPlayer mediaPlayer = MediaPlayer.create(context,R.raw.basket_sound);
+            mediaPlayer.start();
+
         });
     }
 
@@ -95,9 +97,8 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
             cardView = itemView.findViewById(R.id.cardView);
             basketBtn = itemView.findViewById(R.id.basketBtnMain);
         }
+
     }
-
-
 
 
 }

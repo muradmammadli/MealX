@@ -43,6 +43,7 @@
                 <Button
                     android:id="@+id/basketBtnMain"
                     android:textSize="12sp"
+                    android:backgroundTint="@color/yellow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -59,13 +60,13 @@
 
 
             <ImageView
+                android:id="@+id/mealDescImg"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:id="@+id/mealDescImg"
                 android:src="@drawable/ic_noun_arrow"
-                app:tint="@color/purple_500" />
+                app:tint="@color/yellow" />
 
 
         </RelativeLayout>
