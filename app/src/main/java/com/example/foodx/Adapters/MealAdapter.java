@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,15 +26,19 @@ import com.example.foodx.DetailActivity;
 import com.example.foodx.Models.MealModel;
 import com.example.foodx.R;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
+public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> implements Filterable {
     Context context;
     List<MealModel> modelList;
+    List<MealModel> mealListAll;
 
     public MealAdapter(Context context,List<MealModel> modelList){
         this.context = context;
         this.modelList = modelList;
+        this.mealListAll = new ArrayList<>(modelList);
     }
 
     @NonNull
@@ -80,6 +86,37 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
     public int getItemCount() {
         return modelList.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+
+    Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            List<MealModel> mealList = new ArrayList<>();
+            if (charSequence.toString().isEmpty()){
+                mealList.addAll(mealListAll);
+            }else {
+                for (MealModel meal : mealListAll){
+                    if (meal.getMeal_name().contains(charSequence.toString().toLowerCase())){
+                         mealList.add(meal);
+                    }
+                }
+            }
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = mealList;
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            modelList.clear();
+            modelList.addAll((Collection<? extends MealModel>) filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView mealName;

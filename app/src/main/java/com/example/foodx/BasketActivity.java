@@ -47,7 +47,7 @@ public class BasketActivity extends AppCompatActivity {
         addImg.setOnClickListener(view -> {
             finish();
         });
-        sumPrice.setText(String.valueOf(sumMealPrice(basketList)));
+        sumPrice.setText(sumMealPrice(basketList) + " AZN");
 
     }
 

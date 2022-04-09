@@ -50,7 +50,6 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.BasketHold
             AppDatabase db = AppDatabase.getDbInstance(context);
             db.userDao().deleteBasket(basket);
             basketList.remove(basket);
-            notifyItemRangeRemoved(position, basketList.size());
             notifyDataSetChanged();
         });
         Intent intent = new Intent("list-size");
