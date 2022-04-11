@@ -13,6 +13,9 @@ import com.example.foodx.Database.AuthenticationDao;
 import com.example.foodx.Database.UserDatabase;
 import com.example.foodx.Models.User;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class HomeActivity extends AppCompatActivity {
     private Button loginBtn;
     private Button registerBtn;
@@ -20,11 +23,13 @@ public class HomeActivity extends AppCompatActivity {
     private EditText editTextPassword;
     AuthenticationDao authenticationDao;
     UserDatabase userDatabase;
+    Logger logger;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         initViews();
+        logger = LoggerFactory.getLogger(HomeActivity.class);
         userDatabase = Room.databaseBuilder(this,UserDatabase.class,"User")
                 .allowMainThreadQueries()
                 .build();
@@ -34,7 +39,7 @@ public class HomeActivity extends AppCompatActivity {
             String mail = editTextMail.getText().toString().trim();
             String password = editTextPassword.getText().toString().trim();
             User user = authenticationDao.getUser(mail,password);
-
+            logger.info("User logined");
             if (user != null){
                 Intent intent = new Intent(this,MainActivity.class);
                 intent.putExtra("User",user);
@@ -48,7 +53,9 @@ public class HomeActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(view -> {
             Intent intent = new Intent(this,RegisterActivity.class);
             startActivity(intent);
+            logger.info("User logined");
         });
+
     }
 
     private void initViews(){

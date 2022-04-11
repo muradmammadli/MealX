@@ -25,7 +25,11 @@ import com.example.foodx.Models.MealModel;
 import com.example.foodx.Models.User;
 import com.example.foodx.SqliteDb.DatabaseHelper;
 import com.example.foodx.SqliteDb.MealDao;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private List<MealModel> modelArrayList;
     private int basketListSize;
     private User user;
+    private Logger logger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         user = (User) getIntent().getSerializableExtra("User");
 
+        logger = LoggerFactory.getLogger(MainActivity.class);
     }
 
 
@@ -87,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             basketListSize = intent.getIntExtra("BASKET_LIST_SIZE",0);
             Log.d("basketListSize", String.valueOf(basketListSize));
+            logger.info("Message received");
         }
     };
 
@@ -106,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 adapter.getFilter().filter(newText);
+                logger.info("Text changed");
                 return true;
             }
         });
@@ -120,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_logout:
                 Intent intent = new Intent(this,HomeActivity.class);
                 startActivity(intent);
+                logger.info("Action logout clicked");
                 finish();
                 break;
         }

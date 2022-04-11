@@ -13,6 +13,9 @@ import com.example.foodx.Database.AuthenticationDao;
 import com.example.foodx.Database.UserDatabase;
 import com.example.foodx.Models.User;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class RegisterActivity extends AppCompatActivity {
     private EditText usernameEdt;
     private EditText mailEdt;
@@ -20,11 +23,13 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText passRptEdt;
     private Button registerBtn;
     private AuthenticationDao dao;
+    private Logger logger;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         initViews();
+        logger = LoggerFactory.getLogger(RegisterActivity.class);
 
         dao = Room.databaseBuilder(this, UserDatabase.class,"User").allowMainThreadQueries().build().getUserDao();
         registerBtn.setOnClickListener(view -> {

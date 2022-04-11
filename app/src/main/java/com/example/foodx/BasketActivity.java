@@ -16,6 +16,9 @@ import com.example.foodx.Adapters.BasketAdapter;
 import com.example.foodx.Database.AppDatabase;
 import com.example.foodx.Database.Basket;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -29,12 +32,16 @@ public class BasketActivity extends AppCompatActivity {
     private Toolbar basketToolbar;
     private ImageView addImg;
     private TextView sumPrice;
+    private Logger logger;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basket);
         initViews();
+        logger = LoggerFactory.getLogger(BasketActivity.class);
         basketToolbar.setTitle("Səbət");
         basketToolbar.setNavigationIcon(getResources().getDrawable(R.drawable.back_icon_toolbar));
         setSupportActionBar(basketToolbar);
@@ -95,6 +102,7 @@ public class BasketActivity extends AppCompatActivity {
         for (Basket basket : basketList) {
             db.userDao().deleteBasket(basket);
         }
+        logger.info("Meal deleted");
         finish();
     }
 }

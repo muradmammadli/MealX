@@ -14,6 +14,9 @@ import android.widget.Toast;
 import com.example.foodx.Database.AppDatabase;
 import com.example.foodx.Database.Basket;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class DetailActivity extends AppCompatActivity {
     private TextView mealName;
     private TextView mealPrice;
@@ -23,6 +26,7 @@ public class DetailActivity extends AppCompatActivity {
     private Button addToBasketBtn;
     private int presentValInt = 1;
     public static final String MEAL_COUNT_PREF = "MealCount";
+    private Logger logger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
